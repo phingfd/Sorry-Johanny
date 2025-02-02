@@ -1,46 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>For My Lablab</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Indie+Flower"
-      rel="stylesheet"
-      type="text/css"
-    />
-  </head>
-  <body>
-    <div class="container">
-      <div class="glass">
-        <div class="shine"></div>
-      </div>
-      <div class="thorns">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="leaves">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="petals">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="text">
-        <h2></h2> Your smile is as beautiful as Rose <br /> 
-       I have Something For your Smile : <a href="new.html">Click Here</a></h2>
-      </div>
-    </div>
-  </body>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <style>
+            .container {
+                text-align: center;
+                margin-top: 50px;
+            }
+            .gif_container img {
+                width: 200px;
+                height: auto;
+            }
+            .buttons {
+                margin-top: 20px;
+            }
+            .btn {
+                font-size: 18px;
+                padding: 10px 20px;
+                margin: 5px;
+                cursor: pointer;
+            }
+        </style>
+    </head> 
+    <body>
+        <div class="container">
+            <div>
+                <h1 class="header_text" id="mainText">Will you forgive me?</h1>
+                <h1 class="header_text" id="subText">and be my Girlfriend please?</h1>
+            </div>
+            <div class="gif_container">
+                <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtZ2JiZDR0a3lvMWF4OG8yc3p6Ymdvd3g2d245amdveDhyYmx6eCZlcD12MV9pbnRlcm5naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute animated illustration">
+            </div>
+            <div class="buttons">
+                <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
+                <button class="btn" id="noButton" onclick="moveButton()">No</button>
+            </div>
+        </div>
+        
+        <script>
+          let noButtonTexts = [
+              "Are you sure? 😢",
+              "Really sure? 🥺",
+              "Think again! 💔",
+              "Last chance! 😭",
+              "Please don't say no... 💕",
+              "Please Johanny 💔",
+              "isa nalang 🥺",
+              "gusto na taka gud 💕",
+              "please say yes",
+          ];
+          let clickCount = 0;
+      
+          function nextPage() {
+              window.location.href = "yes.html";
+          }
+      
+          function moveButton() {
+              var button = document.getElementById('noButton');
+              var x = Math.random() * (window.innerWidth - button.offsetWidth);
+              var y = Math.random() * (window.innerHeight - button.offsetHeight);
+      
+              button.style.position = "absolute";
+              button.style.left = `${x}px`;
+              button.style.top = `${y}px`;
+      
+              // Change button text each time it's clicked
+              if (clickCount < noButtonTexts.length) {
+                  button.innerText = noButtonTexts[clickCount];
+                  clickCount++;
+              }
+          }
+      </script>
+      
+    </body> 
 </html>
